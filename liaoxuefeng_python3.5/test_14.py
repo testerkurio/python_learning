@@ -38,7 +38,6 @@ print([s.lower() for s in L])
 '''习题'''
 
 L1 = ['Hello','World',18,'Apple',None]
-isinstance('kurio',str)
-
+#isinstance()函数用来判断一个变量是否为字符串
 L2 = [s.lower() for s in L1 if isinstance(s,str) == True]
 print(L2)
