@@ -33,3 +33,12 @@ print([k+'='+v for k,v in d.items()])
 #把一个list中所有的字符串变成小写
 L = ['Hello','World','IBM','Apple']
 print([s.lower() for s in L])
+
+
+'''习题'''
+
+L1 = ['Hello','World',18,'Apple',None]
+isinstance('kurio',str)
+
+L2 = [s.lower() for s in L1 if isinstance(s,str) == True]
+print(L2)
