@@ -14,3 +14,16 @@ print(isinstance('abx',Iterable)) #str
 print(isinstance((x for x in range(10)),Iterable)) #生成器
 print(isinstance(100,Iterable)) #整数
 
+'''可被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator'''
+
+'''可用isinstance()判断一个对象是否是Iterator对象'''
+
+from collections import Iterator
+print(isinstance((x for x in range(10)),Iterator))
+print(isinstance([],Iterator))
+print(isinstance({},Iterator))
+print(isinstance('abc',Iterator))
+
+'''把list、dict、str等Iterable变为Iterator可以用iter()函数'''
+print(isinstance(iter([]),Iterator))
+print(isinstance(iter('abc'),Iterator))
