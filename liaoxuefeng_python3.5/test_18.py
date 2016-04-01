@@ -22,6 +22,9 @@ def add(x,y):
 	return x+y
 print(reduce(add,[1,3,5,7,9]))
 
+#reduce()还可以接收第3个可选参数，作为计算的初始值
+print(reduce(add,[1,3,5,7,9],100))
+
 #将序列[1,3,5,7,9]变换为整数13579
 from functools import reduce
 def fn(x,y):
