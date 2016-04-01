@@ -46,3 +46,10 @@ def is_palindrome(n):
 
 output = filter(is_palindrome,range(1,1000))
 print(list(output))
+
+#用fitler过滤出1~100中平方根是整数的数
+import math
+def is_sqr(x):
+	r = int((math.sqrt(x)))
+	return r*r == x
+print(list(filter(is_sqr,range(1,101))))
