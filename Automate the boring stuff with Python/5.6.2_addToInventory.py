@@ -11,7 +11,7 @@ def displayInventory(inventory):
 def addToInventory(inventory, addedItems):
 	# 将列表中的每一项对应到字典的键，然后将对应的value值累加1
 	for i in addedItems:
-		inventory.setdefault(i,0)
+		inventory.setdefault(i,0) #添加字典中没有的键
 		inventory[i] = inventory[i] + 1
 	# 返回累加过value值的字典
 	return inventory
