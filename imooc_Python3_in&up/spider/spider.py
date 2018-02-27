@@ -1,9 +1,17 @@
+'''
+	This is module
+	爬取熊猫TV-英雄联盟首页主播名字和人气，人气高往低排序
+'''
 import re
 
 from urllib import request
 
 class Spider():
+	'''
+		This is a class
+	'''
 	url = 'https://www.panda.tv/cate/lol'
+	
 	# \s\S 匹配所有字符, []表示字符集, *表示匹配多次, ?表示非贪婪, ()表示组
 	root_pattern = '<div class="video-info">([\s\S]*?)</div>'
 	name_pattern = '</i>([\s\S]*?)</span>'
@@ -23,6 +31,7 @@ class Spider():
 	def __analysis(self, htmls):
 		# 获取匹配到的初始字符串
 		root_html = re.findall(Spider.root_pattern, htmls)
+
 		anchors = []
 		# 从初始字符串中匹配到名称和次数，并组成字典元素的列表
 		for html in root_html:
@@ -30,6 +39,7 @@ class Spider():
 			number = re.findall(Spider.number_pattern, html)
 			anchor = {"name":name, "number":number}
 			anchors.append(anchor)
+		
 		return anchors
 	
 	# 数据精炼，规范格式
@@ -56,8 +66,9 @@ class Spider():
 	
 	# 将结果以一种好看的形式打印出来
 	def __show(self, anchors):
-		for anchor in anchors:
-			print(anchor['name'] + '-----' + anchor['number'])
+		for rank in range(0, len(anchors)):
+			print('rank' + str(rank + 1) + ' : ' + anchors[rank]['name']
+				+ '  ' + anchors[rank]['number'])
 	
 	# 入口方法
 	def go(self):
